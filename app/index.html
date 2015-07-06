@@ -9,27 +9,74 @@
 </head>
 <body>
 	<header>
-		<div class="logo">
-			<img src="img/logo.png" alt="">
+		<div class="container">
+			<div class="logo">
+				<img src="img/logo.png" alt="Havas People">
+			</div>
+			<nav>
+				<ul>
+					<li><a href="#">HOME</a></li>
+					<li><a href="#" class="active">ABOUT US</a></li>
+					<li><a href="#">WORK</a></li>
+					<li><a href="#">NEWS</a></li>
+					<li><a href="#">CONTACT</a></li>
+				</ul>
+			</nav>
 		</div>
-		<nav>
-			<ul>
-				<li>HOME</li>
-				<li>ABOUT US</li>
-				<li>WORK</li>
-				<li>NEWS</li>
-				<li>CONTACT</li>
-			</ul>
-		</nav>
 	</header>
-	<main>
-		<h1 class="title">About us</h1>
-	</main>
+	<section>
+		<div class="container">
+			<section class="heading">
+				<h1 class="title">About us</h1>
+			</section>
+			<main>
+				<h2>Whatever people challenges you’re facing, we can help you tackle them head-on through brilliant communication and brand management. </h2>
+				<p>Our approach is integrated, covering everything from initially grabbing your audience’s attention, to nurturing your relationship over time.  We work with all kinds of clients – and audiences who include everyone from students to CEOs. Because every organisation is unique, we don’t like one-size-fits-all solutions. Instead, we prefer to work with you to create something absolutely spot-on.  However, we can break down what we do into the following key areas: 
+				</p>
+				<div class="row">
+					<div class="col__1-2 box">
+						<img src="img/img-1.jpg" alt="">
+						<div class="box__info">
+							<h3>Our Clients</h3>
+							<ul>							
+								<li><a href="#">Tesco</a></li>
+								<li><a href="#">Specsavers</a></li>
+								<li><a href="#">Freshfields</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col__1-2 box">
+						<img src="img/img-2.jpg" alt="">
+						<div class="box__info">
+							<h3>A great place to work</h3>
+							<ul>							
+								<li><a href="#">Training and development</a></li>
+								<li><a href="#">Benefits</a></li>
+								<li><a href="#">What we look for</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</main>
+			<section class="flickr">
+				<div class="flickr__title">
+					Flickr
+				</div>
+				<div class="flickr__pics"></div>
+			</section>
+		</div>
+	</section>
 	<script src="js/main.js"></script>
 	<script type="text/javascript"> 
 		function cb(data) {
 			//use returned data 
 			console.log(data.items);
+			var container = document.querySelector('.flickr__pics');
+			data.items.map(function (pic) {
+				var img = document.createElement('img');
+				img.src = pic.media.m;
+				container.appendChild(img);
+			});
 		}
 		(function () {
 			var tags = 'london';
