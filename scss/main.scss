@@ -1,0 +1,38 @@
+$dark: #333;
+$mainColor: #dc022e;
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Arial' sans-serif;
+}
+
+header {
+	height: 100px;
+	padding: 25px;
+	background: $dark;
+}
+.title {
+	position: relative;
+	display: inline-block;
+	padding: 15px 30px 18px 10px;
+	margin-bottom: 11px;
+	background: $mainColor;
+	color: #fff;
+	font-weight: normal;
+	&:before {
+		content: "";
+		position: absolute;
+		left: 5px;
+		bottom: -10px;
+		width: 0;
+		height: 0;
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		border-top: 10px solid #ea1a36;
+	}
+}
