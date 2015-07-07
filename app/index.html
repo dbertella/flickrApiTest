@@ -69,19 +69,33 @@
 	<script src="js/main.js"></script>
 	<script type="text/javascript"> 
 		function cb(data) {
-			//use returned data 
-			console.log(data.items);
 			var container = document.querySelector('.flickr__pics');
 			data.items.map(function (pic) {
-				var div = document.createElement('div');
+				var div = document.createElement('div'),
+					elClass = pic.media.m.split('/')[3],
+					img = document.createElement('img');
+				div.classList.add(elClass);
+				// check if the local storage is populated
+				if(localStorage.getItem(elClass)) {
+					div.classList.add('selected');
+				}
+
 				div.addEventListener('click', select, false);
-				var img = document.createElement('img');
 				img.src = pic.media.m;
 				div.appendChild(img);
 				container.appendChild(div);
 			});
 		}
 		function select () {
+			var elClass = this.className.split(' ')[0];
+			// check if the local storage is populated
+			if(!localStorage.getItem(elClass)) {
+				// set the class in local storage
+				localStorage.setItem(elClass, true);
+			} else {
+				// remove the class in local storage
+				localStorage.removeItem(elClass);
+			}
 			this.classList.toggle('selected');
 		}
 		(function () {
