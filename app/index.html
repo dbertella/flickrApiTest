@@ -73,10 +73,16 @@
 			console.log(data.items);
 			var container = document.querySelector('.flickr__pics');
 			data.items.map(function (pic) {
+				var div = document.createElement('div');
+				div.addEventListener('click', select, false);
 				var img = document.createElement('img');
 				img.src = pic.media.m;
-				container.appendChild(img);
+				div.appendChild(img);
+				container.appendChild(div);
 			});
+		}
+		function select () {
+			this.classList.toggle('selected');
 		}
 		(function () {
 			var tags = 'london';
