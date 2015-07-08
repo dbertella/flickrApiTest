@@ -105,10 +105,18 @@
 				var div = document.createElement('div'),
 					elClass = pic.media.m.split('/')[3],
 					img = document.createElement('img');
-				div.classList.add(elClass);
+				//div.classList.add(elClass);
+				if (div.classList)
+				  div.classList.add(elClass);
+				else
+				  div.className += ' ' + elClass;
 				// check if the local storage is populated
 				if(localStorage.getItem(elClass)) {
-					div.classList.add('selected');
+					//div.classList.add('selected');
+					if (div.classList)
+					  div.classList.add('selected');
+					else
+					  div.className += ' ' + 'selected';
 				}
 
 				div.addEventListener('click', select, false);
